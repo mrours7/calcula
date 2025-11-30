@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Contact - Stead MABIALA</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="assets/img/image.png">
+  <link rel="apple-touch-icon" href="assets/img/image.png">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body class="contact-page">
+
+  <div id="header"></div>
+
+  <main class="main">
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-5">
+            <div class="info-box" data-aos="fade-up" data-aos-delay="200">
+              <h3>Contact Info</h3>
+              <p>Vous avez un projet, une question ou envie d’échanger ? N’hésitez pas à me contacter.</p>
+
+              <div class="info-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="content">
+                  <h4>Adresse</h4>
+                  <p>Noisy-le-Grand</p>
+                </div>
+              </div>
+
+              <div class="info-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon-box">
+                  <i class="bi bi-telephone"></i>
+                </div>
+                <div class="content">
+                  <h4>Numéro de téléphone</h4>
+                  <p>+33 7 53 81 40 04</p>
+                </div>
+              </div>
+
+              <div class="info-item" data-aos="fade-up" data-aos-delay="500">
+                <div class="icon-box">
+                  <i class="bi bi-envelope"></i>
+                </div>
+                <div class="content">
+                  <h4>Email</h4>
+                  <p>orentamabiala@gmail.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
+              <h3>Get In Touch</h3>
+              <p>Expliquez-moi votre besoin en quelques lignes et je vous répondrai au plus vite.</p>
+
+              <!-- Formulaire Formspree avec envoi AJAX -->
+              <form id="contact-form" action="https://formspree.io/f/xeodabaa" method="post" data-aos="fade-up" data-aos-delay="200">
+                <div class="row gy-4">
+
+                  <div class="col-md-6">
+                    <input type="text" name="name" class="form-control" placeholder="Votre nom" required>
+                  </div>
+
+                  <div class="col-md-6">
+                    <input type="email" class="form-control" name="email" placeholder="Votre email" required>
+                  </div>
+
+                  <div class="col-12">
+                    <input type="text" class="form-control" name="subject" placeholder="Sujet" required>
+                  </div>
+
+                  <div class="col-12">
+                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                  </div>
+
+                  <div class="col-12 text-center">
+                    <div class="loading" style="display:none;">Envoi en cours...</div>
+                    <div class="error-message" style="display:none;"></div>
+                    <div class="sent-message" style="display:none;">Votre message a bien été envoyé. Merci !</div>
+
+                    <button type="submit" class="btn">Envoyer le message</button>
+                  </div>
+
+                </div>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <div id="footer"></div>
+
+  <!-- Injection du header + gestion du lien actif -->
+  <script>
+    fetch("header.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("header").innerHTML = html;
+        highlightActiveLink();   // <- important
+      });
+
+    function highlightActiveLink() {
+      const currentFile = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+
+      const links = document.querySelectorAll("#navmenu a[href]");
+      links.forEach(a => a.classList.remove("active")); // reset
+
+      links.forEach(a => {
+        const href = a.getAttribute("href");
+        if (!href || href.startsWith("#")) return;
+
+        const targetFile = href.split("/").pop().toLowerCase();
+
+        const isMatch =
+          targetFile === currentFile ||
+          (currentFile === "index.html" && (targetFile === "" || targetFile === "index.html"));
+
+        if (isMatch) {
+          a.classList.add("active");
+
+          const parentDropdown = a.closest(".dropdown");
+          if (parentDropdown) {
+            const parentTrigger = parentDropdown.querySelector(":scope > a");
+            if (parentTrigger) parentTrigger.classList.add("active");
+          }
+        }
+      });
+    }
+
+    // Charger le footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+
+  <!-- Script pour envoyer le formulaire à Formspree sans quitter la page -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('contact-form');
+      if (!form) return;
+
+      const loading = form.querySelector('.loading');
+      const errorMessage = form.querySelector('.error-message');
+      const sentMessage = form.querySelector('.sent-message');
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        // Reset affichage
+        if (loading) loading.style.display = 'block';
+        if (errorMessage) {
+          errorMessage.textContent = '';
+          errorMessage.style.display = 'none';
+        }
+        if (sentMessage) sentMessage.style.display = 'none';
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json'
+            },
+            body: formData
+          });
+
+          if (response.ok) {
+            form.reset();
+            if (loading) loading.style.display = 'none';
+            if (sentMessage) sentMessage.style.display = 'block';
+          } else {
+            let msg = "Une erreur est survenue, merci de réessayer.";
+            try {
+              const data = await response.json();
+              if (data && data.errors && data.errors.length) {
+                msg = data.errors.map(e => e.message).join(', ');
+              }
+            } catch (_) { }
+            if (loading) loading.style.display = 'none';
+            if (errorMessage) {
+              errorMessage.textContent = msg;
+              errorMessage.style.display = 'block';
+            }
+          }
+        } catch (err) {
+          if (loading) loading.style.display = 'none';
+          if (errorMessage) {
+            errorMessage.textContent = "Impossible d'envoyer le message. Vérifiez votre connexion et réessayez.";
+            errorMessage.style.display = 'block';
+          }
+        }
+      });
+    });
+  </script>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
